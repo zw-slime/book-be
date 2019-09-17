@@ -1,0 +1,18 @@
+{
+    "title": "/cats/create",
+    "description": "request of /cats/create api",
+    "type": "object",
+    "required": ["name", "age", "breed"],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "age": {
+            "type": "integer",
+            "minimum": 0
+        },
+       "breed": {
+            "type": "string"
+        }
+    }
+}
