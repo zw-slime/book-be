@@ -4,6 +4,7 @@ export enum ErrorCode {
   jwtNotFound = 10110,
   jwtExpired = 10111,
   jwtInvalid = 10112,
+  jwtNoUser = 10113,
 }
 
 export class BadRequestException extends HttpException {

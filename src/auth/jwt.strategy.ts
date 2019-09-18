@@ -1,8 +1,4 @@
-import {
-  HttpException,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { jwtSecretKey } from './auth.service';
@@ -24,7 +20,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const user = await this.usersService.findOneByUserName(payload.username);
     if (!user) {
       throw new BadRequestException('用户名不存在');
+    } else {
+      return { username: payload.username, email: payload.email };
     }
-    return { username: payload.username, email: payload.email };
   }
 }
