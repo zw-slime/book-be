@@ -1,0 +1,44 @@
+{
+  "types": [
+    {
+      "type": "feat",
+      "section": "New Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "refactor",
+      "section": "Refactor"
+    },
+    {
+      "type": "style",
+      "section": "Style"
+    },
+    {
+      "type": "docs",
+      "section": "Docs"
+    },
+    {
+      "type": "test",
+      "section": "Other"
+    },
+    {
+      "type": "build",
+      "section": "Other"
+    },
+    {
+      "type": "chore",
+      "section": "Other"
+    },
+    {
+      "type": "perf",
+      "section": "Other"
+    },
+    {
+      "type": "ci",
+      "section": "Other"
+    }
+  ]
+}
