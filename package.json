@@ -17,7 +17,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "release": "standard-version"
   },
   "config": {
     "commitizen": {
@@ -67,6 +68,7 @@
     "jest": "24.7.1",
     "json-schema-loader": "^1.0.0",
     "prettier": "1.17.0",
+    "standard-version": "^7.0.0",
     "supertest": "4.0.2",
     "ts-jest": "24.0.2",
     "ts-loader": "^6.1.0",
