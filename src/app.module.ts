@@ -17,14 +17,22 @@ import { TransformInterceptor } from './common/interceptor/transform.interceptor
 import { JwtAuthGuard } from './common/guard/jwtAuth.guard';
 import { BadRequestException } from './common/exception/http-exception';
 
-import ormconfig from '../ormconfig';
-
 @Module({
   imports: [
     CatsModule,
     AuthModule,
     UsersModule,
-    TypeOrmModule.forRoot(ormconfig),
+    TypeOrmModule.forRoot({
+      keepConnectionAlive: true,
+      type: 'mysql',
+      host: '192.168.44.90',
+      port: 3305,
+      username: 'root',
+      password: '123456',
+      database: 'book-be',
+      synchronize: true,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    }),
   ],
   controllers: [AppController, CatsController],
   providers: [
