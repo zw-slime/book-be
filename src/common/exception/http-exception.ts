@@ -5,16 +5,17 @@ export enum ErrorCode {
   jwtExpired = 10111,
   jwtInvalid = 10112,
   jwtNoUser = 10113,
+  noPicturePermission = 10114,
 }
 
 export class BadRequestException extends HttpException {
   constructor(private readonly msg: string) {
     super(
       {
-        status: HttpStatus.INTERNAL_SERVER_ERROR, // error code
-        error: msg,
+        errCode: HttpStatus.INTERNAL_SERVER_ERROR, // errMsg code
+        errMsg: msg,
       },
-      500, // status code
+      500, // errCode code
     );
   }
 }
@@ -24,34 +25,23 @@ export class JwtException extends HttpException {
   constructor(private readonly errCode, private readonly msg) {
     super(
       {
-        status: errCode,
-        error: msg,
+        errCode,
+        errMsg: msg,
       },
       403,
     );
   }
 }
 
-export class ForbiddenException extends HttpException {
-  constructor(private readonly msg: string) {
+// 对图片没有权限
+export class NOPicturePermissionException extends HttpException {
+  constructor() {
     super(
       {
-        status: HttpStatus.FORBIDDEN,
-        error: msg,
+        errCode: ErrorCode.noPicturePermission,
+        errMsg: '您对图片没有访问权限',
       },
-      403,
-    );
-  }
-}
-
-export class NotFountexception extends HttpException {
-  constructor(private readonly msg: string) {
-    super(
-      {
-        status: HttpStatus.NOT_FOUND,
-        error: msg,
-      },
-      404,
+      500,
     );
   }
 }

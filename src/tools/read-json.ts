@@ -29,7 +29,7 @@ export function writeJson(filePath, data): Result<{ data: string }> {
     result = { data: 'success' };
   } catch (error) {
     console.log(error);
-    return { result: { data: 'error' }, err: error };
+    return { result: { data: 'errMsg' }, err: error };
   }
   return { result, err: null };
 }
@@ -82,11 +82,11 @@ export function deleteJson(filePath, id): Result<{ data: string }> {
       };
     } catch (error) {
       console.log(error);
-      return { result: { data: 'error' }, err: error };
+      return { result: { data: 'errMsg' }, err: error };
     }
   } else {
     return {
-      result: { data: 'error' },
+      result: { data: 'errMsg' },
       err: { message: `id为${id}的cat不存在`, name: '' },
     };
   }

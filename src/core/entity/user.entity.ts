@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { PictureEntity } from './picture.entity';
 
 @Entity({ name: 'user' })
 export class UserEntity {
@@ -36,4 +37,7 @@ export class UserEntity {
     onUpdate: 'CURRENT_TIMESTAMP',
   })
   createAt: Date;
+
+  @OneToMany(type => PictureEntity, picture => picture.owner)
+  pictures: PictureEntity[];
 }

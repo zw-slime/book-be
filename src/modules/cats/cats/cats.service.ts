@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Cat, CreateCatDto, DeleteCatDto } from '../../core/model';
-import { appendJson, deleteJson, readJson } from '../../tools/read-json';
-import { BadRequestException } from '../../common/exception/http-exception';
+import { Cat, CreateCatDto, DeleteCatDto } from '../../../core/model';
+import { appendJson, deleteJson, readJson } from '../../../tools/read-json';
+import { BadRequestException } from '../../../common/exception/http-exception';
 
 interface Result<T> {
   data: T;

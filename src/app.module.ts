@@ -5,17 +5,16 @@ import { Connection } from 'typeorm';
 
 import { AppController } from './app.controller';
 
-import { CatsController } from './cats/cats.controller';
-import { CatsService } from './cats/cats/cats.service';
-import { CatsModule } from './cats/cats.module';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { CatsModule } from './modules/cats/cats.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
 
 import { HttpExceptionFilter } from './common/exception/http-exception.filter';
 import { ValidationPipe } from './common/pipe/validation.pipe';
 import { TransformInterceptor } from './common/interceptor/transform.interceptor';
 import { JwtAuthGuard } from './common/guard/jwtAuth.guard';
 import { BadRequestException } from './common/exception/http-exception';
+import { PictureModule } from './modules/picture/picture.module';
 
 @Module({
   imports: [
@@ -33,10 +32,10 @@ import { BadRequestException } from './common/exception/http-exception';
       synchronize: true,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
     }),
+    PictureModule,
   ],
-  controllers: [AppController, CatsController],
+  controllers: [AppController],
   providers: [
-    CatsService,
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter, // 异常过滤器

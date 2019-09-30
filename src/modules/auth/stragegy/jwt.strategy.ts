@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { jwtSecretKey } from './auth.service';
-import { UserInfo } from '../core/model';
-import { UsersService } from '../users/users.service';
-import { BadRequestException } from '../common/exception/http-exception';
+import { jwtSecretKey } from '../service/auth.service';
+import { UserInfo } from '../../../core/model';
+import { UsersService } from '../../users/service/users.service';
+import { BadRequestException } from '../../../common/exception/http-exception';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -21,7 +21,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!user) {
       throw new BadRequestException('用户名不存在');
     } else {
-      return { username: payload.username, email: payload.email };
+      return {
+        userId: payload.id,
+        username: payload.username,
+        email: payload.email,
+      };
     }
   }
 }

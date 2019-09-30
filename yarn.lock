@@ -635,6 +635,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/multer@^1.3.10":
+  version "1.3.10"
+  resolved "https://registry-mirrors.avlyun.org/repository/npm-public/@types/multer/-/multer-1.3.10.tgz#d7afbd916f688fceb4460320e62a8ad1ab3e3cad"
+  integrity sha1-16+9kW9oj860RgMg5iqK0as+PK0=
+  dependencies:
+    "@types/express" "*"
+
 "@types/node@*":
   version "12.7.4"
   resolved "https://registry-mirrors.avlyun.org/repository/npm-public/@types/node/-/node-12.7.4.tgz#64db61e0359eb5a8d99b55e05c729f130a678b04"
@@ -654,6 +661,13 @@
   version "2.4.0"
   resolved "https://registry-mirrors.avlyun.org/repository/npm-public/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
   integrity sha1-5IbQ2XOW15vu3QpuM/RTT/a0lz4=
+
+"@types/object-hash@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry-mirrors.avlyun.org/repository/npm-public/@types/object-hash/-/object-hash-1.3.0.tgz#b20db2074129f71829d61ff404e618c4ac3d73cf"
+  integrity sha1-sg2yB0Ep9xgp1h/0BOYYxKw9c88=
+  dependencies:
+    "@types/node" "*"
 
 "@types/passport-jwt@^3.0.2":
   version "3.0.2"
@@ -4469,7 +4483,7 @@ ms@^2.1.1:
   resolved "https://registry-mirrors.avlyun.org/repository/npm-public/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
 
-multer@1.4.2:
+multer@1.4.2, multer@^1.4.2:
   version "1.4.2"
   resolved "https://registry-mirrors.avlyun.org/repository/npm-public/multer/-/multer-1.4.2.tgz#2f1f4d12dbaeeba74cb37e623f234bf4d3d2057a"
   integrity sha1-Lx9NEtuu66dMs35iPyNL9NPSBXo=
@@ -4699,7 +4713,7 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-hash@1.3.1:
+object-hash@1.3.1, object-hash@^1.3.1:
   version "1.3.1"
   resolved "https://registry-mirrors.avlyun.org/repository/npm-public/object-hash/-/object-hash-1.3.1.tgz#fde452098a951cb145f039bb7d455449ddc126df"
   integrity sha1-/eRSCYqVHLFF8Dm7fUVUSd3BJt8=

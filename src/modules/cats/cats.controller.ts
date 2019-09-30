@@ -9,9 +9,9 @@ import {
 } from '@nestjs/common';
 import { Request } from 'express';
 import { CatsService } from './cats/cats.service';
-import { Cat, CreateCatDto, DeleteCatDto } from '../core/model';
-import { ParseIntPipe } from '../common/pipe/parse-int.pipe';
-import { LoggingInterceptor } from '../common/interceptor/logging.interceptor';
+import { Cat, CreateCatDto, DeleteCatDto } from '../../core/model';
+import { ParseIntPipe } from '../../common/pipe/parse-int.pipe';
+import { LoggingInterceptor } from '../../common/interceptor/logging.interceptor';
 
 // nest g controller cats
 

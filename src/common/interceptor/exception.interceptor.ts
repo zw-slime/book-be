@@ -15,7 +15,7 @@ export class ExceptionInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
       catchError(err => {
-        console.warn(1111, err.message.error);
+        console.warn(1111, err.message.errMsg);
         return throwError(new BadGatewayException())
       }),
     );

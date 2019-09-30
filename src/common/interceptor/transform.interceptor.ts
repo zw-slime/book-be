@@ -11,7 +11,6 @@ import { transform } from '@babel/core';
 export interface Response<T> {
   data: T;
   meta: {
-    status: number;
     err_code: number;
     err_msg: string;
     timestamp: string;
@@ -32,7 +31,6 @@ export class TransformInterceptor<T>
       map(data => ({
         data,
         meta: {
-          status: null,
           err_code: null,
           err_msg: null,
           timestamp: new Date().toISOString(),

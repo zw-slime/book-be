@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
+import { UsersService } from '../../users/service/users.service';
 import { JwtService } from '@nestjs/jwt';
-import { UserInfo } from '../core/model';
-import { CreateMD5 } from '../tools/createMD5';
-import { BadRequestException } from '../common/exception/http-exception';
-import { UserEntity } from '../users/user.entity';
+import { CreateMD5 } from '../../../tools/createMD5';
+import { BadRequestException } from '../../../common/exception/http-exception';
+import { UserEntity } from '../../../core/entity';
 
 @Injectable()
 export class AuthService {
@@ -27,11 +26,14 @@ export class AuthService {
   }
 
   async login(user: UserEntity) {
-    const payload = { username: user.name, email: user.email };
-    console.warn(11, payload);
+    const payload = { userId: user.id, username: user.name };
     return {
       token: this.jwtService.sign(payload),
     };
+  }
+
+  decode(token: string) {
+    return this.jwtService.decode(token);
   }
 }
 
