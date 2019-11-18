@@ -1,5 +1,14 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { PictureEntity } from './picture.entity';
+import { RoleEntity } from './role.entity';
 
 @Entity({ name: 'user' })
 export class UserEntity {
@@ -31,12 +40,15 @@ export class UserEntity {
   })
   salt: string;
 
-  @Column({
+  @CreateDateColumn({
     name: 'create_at',
     type: 'timestamp',
-    onUpdate: 'CURRENT_TIMESTAMP',
+    default: 'CURRENT_TIMESTAMP',
   })
   createAt: Date;
+
+  @OneToOne(type => RoleEntity, role => role.users)
+  role: RoleEntity;
 
   @OneToMany(type => PictureEntity, picture => picture.owner)
   pictures: PictureEntity[];

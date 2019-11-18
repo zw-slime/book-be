@@ -15,17 +15,19 @@ import { TransformInterceptor } from './common/interceptor/transform.interceptor
 import { JwtAuthGuard } from './common/guard/jwtAuth.guard';
 import { BadRequestException } from './common/exception/http-exception';
 import { PictureModule } from './modules/picture/picture.module';
+import { RoleModule } from './role/role.module';
 
 @Module({
   imports: [
     CatsModule,
     AuthModule,
     UsersModule,
+    RoleModule,
     TypeOrmModule.forRoot({
       keepConnectionAlive: true,
       type: 'mysql',
-      host: '192.168.44.90',
-      port: 3305,
+      host: '47.102.117.224',
+      port: 3306,
       username: 'root',
       password: '123456',
       database: 'book-be',
